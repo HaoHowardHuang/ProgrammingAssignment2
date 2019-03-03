@@ -10,9 +10,9 @@ makeCacheMatrix <- function(x = matrix()) {
 		inversematrix<<-NULL
 		
 	} 
-	getvalueofmatrix <- function(){x}
-	setvalueofinverse <- function(inverse) {inversematrix <<- inverse}
-	getvalueofinverse<-function(){inversematrix}
+	getvalueofmatrix <- function(){x} #get the value of matrix
+	setvalueofinverse <- function(inverse) {inversematrix <<- inverse} #set the inverse of the matrix
+	getvalueofinverse<-function(){inversematrix} # get the value of the inverse matrix
 	
 	list(setvalueofmatrix=setvalueofmatrix, getvalueofmatrix=getvalueofmatrix,
 	setvalueofinverse=setvalueofinverse, getvalueofinverse=getrvalueofinverse)
@@ -25,7 +25,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         inversematrix <- x$getvalueofinverse()
         if(is.null(inversematrix)==FALSE){
-        return(inversematrix)}
+        return(inversematrix)} #get the inverse matrix when the matrix is not NULL.
         else{dataofmatrix <- x$getvalueofmatrix()
         	inversematrix <- solve(dataofmatrix)
         	return(inversematrix)
